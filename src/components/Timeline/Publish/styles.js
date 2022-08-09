@@ -5,6 +5,7 @@ export const Section = styled.section`
     background-color: white;
     display:flex;
     justify-content: center;
+    margin-bottom: 20px;
 
     @media(min-width: 600px){
         width: 40%;

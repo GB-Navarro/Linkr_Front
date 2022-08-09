@@ -5,6 +5,7 @@ export const Main = styled.main`
     font-family: 'Lato', sans-serif;
     display:flex;
     justify-content: center;
+    margin-bottom: 20px;
 
     @media(min-width: 600px){
         width: 60%;
