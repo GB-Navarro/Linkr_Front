@@ -5,9 +5,11 @@ export const Section = styled.section`
     background-color: white;
     display:flex;
     justify-content: center;
-    
-    @media(max-width: 450px){
 
+    @media(min-width: 600px){
+        width: 40%;
+        border-radius:16px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
 `
 
@@ -16,6 +18,15 @@ export const Tittle = styled.h1`
     font-family: 'Lato', sans-serif;
     font-weight: 300;
     font-size: 17px;
+`
+
+export const TittleBox = styled.div`
+    display: flex;
+    justify-content: center;
+
+    @media(min-width: 600px){
+        justify-content: flex-start;
+    }
 `
 
 export const UrlInput = styled.input`
@@ -66,20 +77,51 @@ export const Button = styled.button`
     }
 `
 
+export const ButtonBox = styled.div`
+    display:flex;
+    justify-content: flex-end;
+    margin-bottom:15px;
+`
+
 export const FormBox = styled.div`
     width: 100%;
 `
 
-export const ButtonBox = styled.div`
-    display:flex;
-    justify-content: flex-end;
+export const MobileContainer = styled.div`
+    width: 100%;
+    
+    @media(min-width: 600px){
+        width: 75%;
+    }
 `
 
-export const Container = styled.div`
-    width: 90%;
+export const Image = styled.img`
+    display:none;
+    @media(min-width: 600px){
+        display:inline;
+        width: 50px;
+        height: 50px;
+        border-radius: 26.5px;
+    }
 `
 
-export const TittleBox = styled.div`
-    display: flex;
-    justify-content: center;
+export const ImageBox = styled.div`
+    display:none;
+    @media(min-width: 600px){
+        display:block;
+        width: 50px;
+        height: 50px;
+        padding-top:6px;
+        margin:0px 15px 0px 5px;
+    }
 `
+
+export const DesktopContainer = styled.div`
+    width: 95%;
+    @media(min-width:600px){
+        display:flex;
+        justify-content: center;
+        margin: 10px 10px 10px 10px;
+    }
+`
+
