@@ -1,9 +1,15 @@
 import styled from "styled-components";
 
 export const Main = styled.main`
-    width:100vw;
     background-color: #171717;
     font-family: 'Lato', sans-serif;
+    display:flex;
+    justify-content: center;
+
+    @media(min-width: 600px){
+        width: 60%;
+        border-radius: 16px;
+    }
 `
 
 export const Container = styled.div`
@@ -94,4 +100,8 @@ export const LikesBox = styled.div`
 export const LikesCount = styled.p`
     font-size: 9px;
     font-weight: 400;
+`
+
+export const DesktopContainer = styled.div`
+
 `

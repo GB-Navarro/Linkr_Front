@@ -1,5 +1,5 @@
 import { IonIcon } from "react-ion-icon";
-import { Main, Container,Name, Description, Hashtags, LinkContainer, LinkBox, LinkTittle, LinkDescription, Link, LinkImage, PostContainer, Aside, ProfileImageBox, ProfileImage, LikesBox, LikesCount } from "./styles.js";
+import { Main, Container,Name, Description, Hashtags, LinkContainer, LinkBox, LinkTittle, LinkDescription, Link, LinkImage, PostContainer, Aside, ProfileImageBox, ProfileImage, LikesBox, LikesCount, DesktopContainer } from "./styles.js";
 import descriptionImage from "./../../../assets/images/descriptionImage.png"
 import profile from "./../../../assets/images/profile.jpg"
 
@@ -22,7 +22,7 @@ export default function Post(){
                         <Description>
                             Muito maneiro esse tutorial de Material UI
                             com React, deem uma olhada! 
-                            <Hashtags> #react #material</Hashtags>
+                                <Hashtags> #react #material</Hashtags>
                         </Description>
                         <LinkContainer>
                             <LinkBox>
@@ -33,7 +33,7 @@ export default function Post(){
                             <LinkImage src={descriptionImage}/>
                         </LinkContainer>
                     </PostContainer>
-                </Container>
+                </Container>           
             </Main>
         </>
     )
