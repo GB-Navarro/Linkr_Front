@@ -1,8 +1,8 @@
 import GlobalStyle from "./assets/styles/globalStyle.js";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import SignInPage from "./components/SignInPage.js";
-import SignUpPage from "./components/SignUpPage.js";
+import SignInPage from "./components/SignIn/SignInPage.js";
+import SignUpPage from "./components/SignUp/SignUpPage.js"
 
 export default function App() {
   return (
