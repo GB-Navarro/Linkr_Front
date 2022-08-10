@@ -88,7 +88,16 @@ export default function SignUpPage() {
 }
 
 const Page = styled.div`
+    background-color: #151515;
     display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 600px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 `
 
 const LeftSide = styled.div`
@@ -113,6 +122,23 @@ const LeftSide = styled.div`
         font-weight: 700;
         font-family: 'Oswald', sans-serif;
     }
+
+    @media (max-width: 600px) {
+        width: 100vw;
+        height: 175px;
+        padding: 15px;
+        align-items: center;
+
+        h1 {
+            font-size: 76px;
+        }
+        h2 {
+            width: 280px;
+            font-size: 23px;
+            text-align: center;
+            margin: 0;
+        }
+    }
 `
 
 const RightSide = styled.div`
@@ -129,6 +155,13 @@ const RightSide = styled.div`
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    @media (max-width: 600px) {
+        width: 100vw;
+        height: 100vh;
+        padding-top: 40px;
+        justify-content: initial;
     }
 `
 
@@ -149,6 +182,15 @@ const Input = styled.input`
 	:valid {
         border: 2px solid #03AC00;
     }
+
+    @media (max-width: 600px) {
+        width: 330px;
+        height: 55px;
+
+        ::placeholder {
+            font-size: 22px;
+        }
+    }
 	
 `
 
@@ -167,6 +209,12 @@ const Button = styled.button`
 	align-items: center;
 	cursor: pointer;
     transition: .2s;
+
+    @media (max-width: 600px) {
+        width: 330px;
+        height: 55px;
+        font-size: 22px;
+    }
 `
 
 const SignInLink = styled(Link)`
@@ -175,5 +223,8 @@ const SignInLink = styled(Link)`
     font-weight: 400;
     font-family: 'Lato', sans-serif;
     color: #FFFFFF;
-    text-decoration: underline;
+
+    @media (max-width: 600px) {
+        font-size: 17px;
+    }
 `
