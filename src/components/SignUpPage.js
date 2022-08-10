@@ -22,7 +22,7 @@ export default function SignUpPage() {
             return (
                 <form onSubmit={signUp}>
                     <Input required type="email" placeholder="e-mail" value={user.email} onChange={(e) => setUser({ ...user, email: e.target.value })} ></Input>
-                    <Input required type="password" placeholder="password" value={user.password} onChange={(e) => setUser({ ...user, password: e.target.value })} minLength={5}></Input>
+                    <Input required type="password" placeholder="password" value={user.password} onChange={(e) => setUser({ ...user, password: e.target.value })} minLength={8}></Input>
                     <Input required type="text" placeholder="username" value={user.username} onChange={(e) => setUser({ ...user, username: e.target.value })} minLength={2} maxLength={25}></Input>
                     <Input required type="text" placeholder="picture url" value={user.pictureUrl} onChange={(e) => setUser({ ...user, pictureUrl: e.target.value })}></Input>
                     <Button type="submit">Sign Up</Button>
@@ -159,7 +159,6 @@ const RightSide = styled.div`
 
     @media (max-width: 600px) {
         width: 100vw;
-        height: 100vh;
         padding-top: 40px;
         justify-content: initial;
     }
