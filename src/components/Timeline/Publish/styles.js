@@ -60,40 +60,33 @@ export const TextInput = styled.input`
     padding: 10px 0px 21px 0px;
 `
 
-export const Button = styled.button`
+export const Button = styled.input`
     width: 122px;
     height: 22px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
     background-color: #1877F2;
     border: 1px solid #1877F2;
     border-radius: 5px;
-
-    p{
-        font-family: 'Lato', sans-serif;
-        font-weight: 700;
-        font-size: 13px;
-        color: #FFFFFF;
-    }
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: #FFFFFF;
 `
 
+
 export const ButtonBox = styled.div`
+    margin-left: 5px;
     display:flex;
     justify-content: flex-end;
     margin-bottom:15px;
+    margin-left: 5px;  
 `
 
-export const FormBox = styled.div`
+export const FormBox = styled.article`
     width: 100%;
 `
 
 export const MobileContainer = styled.div`
     width: 100%;
-    
-    @media(min-width: 600px){
-        width: 75%;
-    }
 `
 
 export const Image = styled.img`
@@ -106,14 +99,11 @@ export const Image = styled.img`
     }
 `
 
-export const ImageBox = styled.div`
+export const ImageBox = styled.aside`
     display:none;
     @media(min-width: 600px){
         display:block;
-        width: 50px;
-        height: 50px;
-        padding-top:6px;
-        margin:0px 15px 0px 5px;
+        margin:10px 14px 0px 8px;
     }
 `
 
@@ -122,7 +112,7 @@ export const DesktopContainer = styled.div`
     @media(min-width:600px){
         display:flex;
         justify-content: center;
-        margin: 10px 10px 10px 10px;
     }
 `
+
 

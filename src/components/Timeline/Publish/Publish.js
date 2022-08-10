@@ -17,9 +17,7 @@ export default function Publish(){
                             <UrlInput placeholder="http://..."></UrlInput>
                             <TextInput placeholder="Awesome article about #javascript"></TextInput>
                             <ButtonBox>
-                                <Button>
-                                    <p> Publish </p>
-                                </Button>
+                                <Button type="submit" value="Publish"></Button>
                             </ButtonBox>
                         </FormBox>
                     </MobileContainer>

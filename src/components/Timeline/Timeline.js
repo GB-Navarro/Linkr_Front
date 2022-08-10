@@ -1,23 +1,22 @@
 import Publish from "./Publish/Publish.js";
 import Post from "./Post/Post.js";
 import Header from "../Header/Header.js"
-import { Container, TextBox, Text } from "./styles.js"
+import { Main, TittleBox, Tittle} from "./styles.js"
 
 export default function Timeline(){
     return(
         <>
             <Header></Header>
-            
-            <Container>
-            <TextBox>
-                    <Text> timeline </Text>
-            </TextBox>
+            <Main>
+                <TittleBox>
+                        <Tittle> timeline </Tittle>
+                </TittleBox>
                 <Publish></Publish>
                 <Post></Post>
                 <Post></Post>
                 <Post></Post>
-                <Post></Post>
-            </Container>
+                <Post></Post>                 
+            </Main>
         </>
     )
 }

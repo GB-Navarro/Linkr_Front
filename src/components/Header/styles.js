@@ -15,7 +15,7 @@ export const Logo = styled.h1`
 
 `
 
-export const Box = styled.div`
+export const Box = styled.section`
     display:flex;
     justify-content: center;
     align-items: center;
@@ -31,7 +31,7 @@ export const Image = styled.img`
     margin-left: 15px;
 `
 
-export const LogoutBox = styled.div`
+export const LogoutBox = styled.section`
     display:${props => props.display};
     justify-content: flex-end;
 `

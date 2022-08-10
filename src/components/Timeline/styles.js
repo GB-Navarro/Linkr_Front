@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.main`
+export const Main = styled.main`
     @media(min-width:600px){
         display:flex;
         flex-direction: column;
@@ -8,7 +8,7 @@ export const Container = styled.main`
     }
 `
 
-export const Text = styled.h1`
+export const Tittle = styled.h1`
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
     font-size: 33px;
@@ -16,10 +16,10 @@ export const Text = styled.h1`
     margin: 30px 0px 30px 25px;
 `
 
-export const TextBox = styled.div`
+export const TittleBox = styled.section`
     @media(min-width:600px){
+        width:63%;
         display:flex;
-        justify-content: flex-end;
+        justify-content: flex-start;
     }
 `
-

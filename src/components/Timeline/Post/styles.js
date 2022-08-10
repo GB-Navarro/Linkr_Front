@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Main = styled.main`
+export const Section = styled.section`
     background-color: #171717;
     font-family: 'Lato', sans-serif;
     display:flex;
@@ -14,7 +14,7 @@ export const Main = styled.main`
 `
 
 export const Container = styled.div`
-    width: 90%;
+    width: 95%;
     display:flex;
     justify-content: center;
 `
@@ -69,15 +69,18 @@ export const Link = styled.a`
 
 export const LinkImage = styled.img`
     width:35%;
-    border-radius: 11px;
+    border-radius: 0px 12px 13px 0px;
 `
 
-export const PostContainer = styled.section``
+export const PostContainer = styled.article``
 
 export const Aside = styled.aside``
 
 export const ProfileImageBox = styled.div`
-    margin:10px 14px 0px 8px;
+    margin:10px 14px 0px 0px;
+    @media(min-width:600px){
+        margin:10px 14px 0px 8px;
+    }
 `
 
 export const ProfileImage = styled.img`
