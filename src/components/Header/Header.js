@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { IonIcon } from "react-ion-icon"
 import { HeaderContainer, Logo, Box, Image, LogoutBox, Logout, Text } from "./styles.js"
+import changeDisplayStatus from "./functions/changeDisplayStatus.js";
 import profile from "./../../assets/images/profile.jpg"
 export default function Header(){
 
@@ -11,7 +12,7 @@ export default function Header(){
             <HeaderContainer>
                 <Logo> Linkr </Logo>
                 <Box>
-                    <IonIcon name="chevron-down-outline" onClick={changeDisplayStatus}/>
+                    <IonIcon name="chevron-down-outline" onClick={() => changeDisplayStatus(logoutDisplayStatus, setLogoutDisplayStatus)}/>
                     <Image src={profile}/>
                 </Box>
             </HeaderContainer>
@@ -19,13 +20,5 @@ export default function Header(){
                 <Logout> <Text>Logout</Text> </Logout>
             </LogoutBox>   
         </>
-    )
-
-    function changeDisplayStatus(){
-        if(logoutDisplayStatus === 'none'){
-            setLogoutDisplayStatus('flex');
-        }else{
-            setLogoutDisplayStatus('none');
-        }
-    }
+    ) 
 }
