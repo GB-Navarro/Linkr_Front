@@ -1,5 +1,5 @@
 import { IonIcon } from "react-ion-icon";
-import { Main, Container,Name, Description, Hashtags, LinkContainer, LinkBox, LinkTittle, LinkDescription, Link, LinkImage, PostContainer, Aside, ProfileImageBox, ProfileImage, LikesBox, LikesCount, DesktopContainer } from "./styles.js";
+import { Main, Container,Name, Description, Hashtags, LinkContainer, LinkBox, LinkTittle, LinkDescription, Link, LinkImage, PostContainer, Aside, ProfileImageBox, ProfileImage, LikesBox, LikesCount } from "./styles.js";
 import descriptionImage from "./../../../assets/images/descriptionImage.png"
 import profile from "./../../../assets/images/profile.jpg"
 

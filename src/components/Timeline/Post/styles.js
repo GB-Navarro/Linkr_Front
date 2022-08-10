@@ -72,12 +72,9 @@ export const LinkImage = styled.img`
     border-radius: 11px;
 `
 
-export const PostContainer = styled.section`
-`
+export const PostContainer = styled.section``
 
-export const Aside = styled.aside`
-
-`
+export const Aside = styled.aside``
 
 export const ProfileImageBox = styled.div`
     margin:10px 14px 0px 8px;
@@ -96,13 +93,10 @@ export const LikesBox = styled.div`
     flex-direction: column;
     align-items: center;
     padding-right: 8px;
+    font-size: 25px;
 `
 
 export const LikesCount = styled.p`
-    font-size: 9px;
+    font-size: 12px;
     font-weight: 400;
-`
-
-export const DesktopContainer = styled.div`
-
 `

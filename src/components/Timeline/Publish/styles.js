@@ -100,8 +100,8 @@ export const Image = styled.img`
     display:none;
     @media(min-width: 600px){
         display:inline;
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         border-radius: 26.5px;
     }
 `

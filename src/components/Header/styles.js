@@ -35,6 +35,7 @@ export const LogoutBox = styled.div`
     display:${props => props.display};
     justify-content: flex-end;
 `
+
 export const Logout = styled.div`
     width: 150px;
     height: 50px;
