@@ -8,7 +8,7 @@ export const Section = styled.section`
     margin-bottom: 20px;
 
     @media(min-width: 600px){
-        width: 40%;
+        width: 60%;
         border-radius:16px;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }

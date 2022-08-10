@@ -10,7 +10,7 @@ export const Logo = styled.h1`
     font-family: 'Passion One', cursive;
     font-size:45px;
     color: #FFFFFF;
-    padding: 15px 0px 15px 0px;
+    padding: 5px 0px 5px 0px;
     margin-left: 25px;
 
 `
@@ -29,4 +29,25 @@ export const Image = styled.img`
     height: 50px;
     border-radius: 26.5px;
     margin-left: 15px;
+`
+
+export const LogoutBox = styled.div`
+    display:${props => props.display};
+    justify-content: flex-end;
+`
+export const Logout = styled.div`
+    width: 150px;
+    height: 50px;
+    background-color: #151515;
+    border-radius: 0px 0px 0px 20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+`
+
+export const Text = styled.h1`
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #FFFFFF;
 `
