@@ -63,13 +63,13 @@ export const TextInput = styled.textarea`
 export const Button = styled.input`
     width: 122px;
     height: 22px;
-    background-color: #1877F2;
-    border: 1px solid #1877F2;
+    background-color: ${props => props.state === true ? "#1877F2" : "#D3D3D3" };
+    border: 1px solid ${props => props.state === true ? "#1877F2" : "#D3D3D3" };
     border-radius: 5px;
     font-family: 'Lato', sans-serif;
     font-weight: 700;
     font-size: 13px;
-    color: #FFFFFF;
+    color: ${props => props.state === true ? "#FFFFFF" : "#949494"};
 `
 
 
