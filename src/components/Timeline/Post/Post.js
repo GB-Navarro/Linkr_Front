@@ -2,6 +2,7 @@ import { IonIcon } from "react-ion-icon";
 import { Section, Container,Name, Description, Hashtags, LinkContainer, LinkBox, LinkTittle, LinkDescription, Link, LinkImage, PostContainer, Aside, ProfileImageBox, ProfileImage, LikesBox, LikesCount } from "./styles.js";
 import descriptionImage from "./../../../assets/images/descriptionImage.png"
 import profile from "./../../../assets/images/profile.jpg"
+import ReactHashtag from "react-hashtag";
 
 export default function Post(){
     return(
@@ -22,7 +23,14 @@ export default function Post(){
                         <Description>
                             Muito maneiro esse tutorial de Material UI
                             com React, deem uma olhada! 
-                                <Hashtags> #react #material</Hashtags>
+                            <ReactHashtag renderHashtag={(hashtag) => (
+                              <Link to={`/hashtag/${hashtag.split("#")[1]}`} >
+                                 <span>
+                                       {hashtag}
+                                 </span>
+                              </Link>
+                           )}>
+                           </ReactHashtag>
                         </Description>
                         <LinkContainer>
                             <LinkBox>
