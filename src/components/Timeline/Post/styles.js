@@ -97,9 +97,11 @@ export const LikesBox = styled.div`
     align-items: center;
     padding-right: 8px;
     font-size: 25px;
+    color: ${props => props.postWasLiked === true ? "#A83F39" : "#FFFFFF"};
 `
 
 export const LikesCount = styled.p`
     font-size: 12px;
     font-weight: 400;
+    color: #FFFFFF;
 `
