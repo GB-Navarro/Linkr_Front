@@ -37,14 +37,14 @@ const SideBar = styled.aside`
     background: #171717;
     border-radius: 16px;
     flex-direction: column;
-    font-family: var(--default-font);
+    font-family: 'Lato', sans-serif;
     color: #FFFFFF;
     padding-top: 10px;
     padding-bottom: 30px;
     h3 {
         margin-left: 5%;
         font-size: 27px;
-        font-family: var(--subtitle-font);
+        font-family: 'Oswald', sans-serif;
     }
     
     p {
@@ -66,7 +66,7 @@ const SideBar = styled.aside`
 const SideBarLine = styled.div`
     width: 100%;
     height: 1px;
-    background-color: var(--line-grey);
+    background-color: #484848;
     margin-bottom: 22px;
     margin-top: 12px
 `;
