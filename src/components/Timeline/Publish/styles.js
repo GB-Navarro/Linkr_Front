@@ -42,7 +42,7 @@ export const UrlInput = styled.input`
     font-weight: 300;
     font-size: 13px;
     color: #949494;
-    padding: 6px 0px 8px 0px;
+    padding: 6px 0px 8px 5px;
 `
 
 export const TextInput = styled.input`
@@ -57,7 +57,7 @@ export const TextInput = styled.input`
     font-weight: 300;
     font-size: 13px;
     color: #949494;
-    padding: 10px 0px 21px 0px;
+    padding: 10px 0px 21px 5px;
 `
 
 export const Button = styled.input`
