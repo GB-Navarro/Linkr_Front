@@ -45,7 +45,7 @@ export const UrlInput = styled.input`
     padding: 6px 0px 8px 5px;
 `
 
-export const TextInput = styled.input`
+export const TextInput = styled.textarea`
     width: 100%;
     background-color: #EFEFEF;
     border-radius: 5px;

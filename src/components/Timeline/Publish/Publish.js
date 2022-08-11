@@ -20,7 +20,7 @@ export default function Publish(){
                         </TittleBox>
                         <FormBox onSubmit={sendPublish}>
                             <UrlInput type="url" placeholder="http://..." value={url} onChange={(e) => setUrl(e.target.value)} required></UrlInput>
-                            <TextInput type="text" placeholder="Awesome article about #javascript" value={text} onChange={(e) => setText(e.target.value)}></TextInput>
+                            <TextInput rows="5" placeholder="Awesome article about #javascript" value={text} onChange={(e) => setText(e.target.value)}></TextInput>
                             <ButtonBox>
                                 <Button type="submit" value="Publish"></Button>
                             </ButtonBox>
