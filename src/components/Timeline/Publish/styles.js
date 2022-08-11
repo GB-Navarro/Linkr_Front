@@ -81,7 +81,7 @@ export const ButtonBox = styled.div`
     margin-left: 5px;  
 `
 
-export const FormBox = styled.article`
+export const FormBox = styled.form`
     width: 100%;
 `
 

@@ -1,7 +1,12 @@
 import { Section, Tittle, TittleBox, UrlInput, TextInput, Button, ButtonBox, FormBox, MobileContainer, Image, ImageBox, DesktopContainer } from "./styles.js";
 import profile from "./../../../assets/images/profile.jpg"
+import { useState } from "react";
 
 export default function Publish(){
+
+    const [url, setUrl] = useState("");
+    const [text, setText] = useState("");
+
     return(
         <>
             <Section>
@@ -13,9 +18,9 @@ export default function Publish(){
                         <TittleBox>
                             <Tittle> What are you going to share today? </Tittle>
                         </TittleBox>
-                        <FormBox>
-                            <UrlInput placeholder="http://..."></UrlInput>
-                            <TextInput placeholder="Awesome article about #javascript"></TextInput>
+                        <FormBox onSubmit={sendPublish}>
+                            <UrlInput type="url" placeholder="http://..." value={url} onChange={(e) => setUrl(e.target.value)} required></UrlInput>
+                            <TextInput type="text" placeholder="Awesome article about #javascript" value={text} onChange={(e) => setText(e.target.value)}></TextInput>
                             <ButtonBox>
                                 <Button type="submit" value="Publish"></Button>
                             </ButtonBox>
@@ -25,4 +30,9 @@ export default function Publish(){
             </Section>
         </>
     )
+
+
+    function sendPublish(e){
+        e.preventDefault();
+    }
 }
