@@ -90,6 +90,7 @@ export const Input = styled.input`
     background-color: #FFFFFF;
 	border-radius: 6px;
     border: 0px;
+    padding: 15px;
     margin-bottom: 13px;
 	transition: .2s;
 
