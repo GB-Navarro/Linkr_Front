@@ -43,7 +43,6 @@ export default function Publish(){
                             </>
 
                         }
-                        
                     </MobileContainer>
                 </DesktopContainer>
             </Section>
@@ -63,7 +62,6 @@ export default function Publish(){
             link:url,
             text:text
         }
-        
         try{
             const promisse = await axios.post("http://localhost:5000/publish",post,config);
             setUrl("");
