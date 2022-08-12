@@ -5,9 +5,7 @@ import profile from "./../../../assets/images/profile.jpg"
 import { useState } from "react";
 
 export default function Post(){
-    //testar a individualidade do click nos componentes
-
-    const [postWasLiked, setPostWasLiked] = useState(true);
+    const [postWasLiked, setPostWasLiked] = useState(false);
 
     return(
         <>
@@ -59,13 +57,10 @@ export default function Post(){
     )
 
     function setLikeStatus(){
-        console.log("a");
         if(postWasLiked){
             setPostWasLiked(false);
-            //enviar a req
         }else{
             setPostWasLiked(true);
-            //enviar a req
         }
     }
 }
