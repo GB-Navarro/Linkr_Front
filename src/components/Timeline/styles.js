@@ -1,11 +1,9 @@
 import styled from "styled-components";
 
 export const Main = styled.main`
-    @media(min-width:600px){
-        display:flex;
-        flex-direction: column;
-        align-items: center;
-    }
+    display:flex;
+    flex-direction: column;
+    align-items: center;
 `
 
 export const Tittle = styled.h1`
@@ -22,4 +20,10 @@ export const TittleBox = styled.section`
         display:flex;
         justify-content: flex-start;
     }
+`
+
+export const LoadingBox = styled.div`
+    width: 50px;
+    height: 50px;
+    margin-top:15vh;
 `

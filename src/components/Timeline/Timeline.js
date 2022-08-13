@@ -2,9 +2,10 @@ import Publish from "./Publish/Publish.js";
 import Post from "./Post/Post.js";
 import Header from "../Header/Header.js";
 import { useState } from "react";
-import { Main, TittleBox, Tittle} from "./styles.js"
+import { Main, TittleBox, Tittle, LoadingBox } from "./styles.js"
 import axios from "axios";
-
+import { Audio, BallTriangle } from "react-loader-spinner";
+ 
 export default function Timeline(){
     
     const [posts, setPosts] = useState([]);
@@ -32,6 +33,9 @@ export default function Timeline(){
                     </>
                     :
                     <>
+                        <LoadingBox>
+                            <BallTriangle color='#FFFFFF' height='10' width='10'></BallTriangle>
+                        </LoadingBox>
                     </>
                 }  
             </Main>
