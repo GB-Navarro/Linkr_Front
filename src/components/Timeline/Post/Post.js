@@ -3,6 +3,7 @@ import { Section, Container,Name, Description, Hashtags, LinkContainer, LinkBox,
 import descriptionImage from "./../../../assets/images/descriptionImage.png"
 import profile from "./../../../assets/images/profile.jpg"
 import { useState } from "react";
+import axios from "axios";
 
 export default function Post(){
     const [postWasLiked, setPostWasLiked] = useState(false);
@@ -56,11 +57,31 @@ export default function Post(){
         </>
     )
 
-    function setLikeStatus(){
+    async function setLikeStatus(){
+        const token = "5e23c49f-fd86-4921-a338-dc90a235b05b";
+        const config = {
+            headers:{
+                Authorization: `Bearer ${token}`
+            }
+        }
+        const data = {
+            postId:8,
+            userId:1
+        }
         if(postWasLiked){
-            setPostWasLiked(false);
+            try{
+                const promisse = await axios.post("http://localhost:5000/removelike", data, config);
+                setPostWasLiked(false);
+            }catch(error){
+                console.log(error);
+            }
         }else{
-            setPostWasLiked(true);
+            try{
+                const promisse = await axios.post("http://localhost:5000/addlike", data, config);
+                setPostWasLiked(true);
+            }catch(error){
+                console.log(error);
+            }
         }
     }
 }
