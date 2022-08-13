@@ -4,10 +4,11 @@ import Header from "../Header/Header.js";
 import { useState } from "react";
 import { Main, TittleBox, Tittle} from "./styles.js"
 import axios from "axios";
+import ReactLoading from "react-loading";
 
 export default function Timeline(){
     
-    const [posts, setPosts] = useState([])
+    const [posts, setPosts] = useState([]);
 
     return(
         <>

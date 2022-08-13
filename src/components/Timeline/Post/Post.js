@@ -7,7 +7,7 @@ import axios from "axios";
 
 export default function Post(props){
     const [postWasLiked, setPostWasLiked] = useState(false);
-    const {username, userText, linkTitle, linkDescription, link, linkImage, likeCount} = props
+    const {username, userText, linkTitle, linkDescription, link, linkImage, likeCount} = props;
 
     return(
         <>
@@ -83,7 +83,5 @@ export default function Post(props){
                 console.log(error);
             }
         }
-    }
-
-    
+    }   
 }
