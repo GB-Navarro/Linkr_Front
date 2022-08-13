@@ -5,8 +5,9 @@ import profile from "./../../../assets/images/profile.jpg"
 import { useState } from "react";
 import axios from "axios";
 
-export default function Post(){
+export default function Post(props){
     const [postWasLiked, setPostWasLiked] = useState(false);
+    const {username, userText, linkTitle, linkDescription, link, linkImage, likeCount} = props
 
     return(
         <>
@@ -14,7 +15,7 @@ export default function Post(){
                 <Container>
                     <Aside>
                         <ProfileImageBox>
-                            <ProfileImage src={profile} />
+                            <ProfileImage src={profile}/>
                         </ProfileImageBox>
                         <LikesBox postWasLiked={postWasLiked}>
                             {
@@ -23,33 +24,32 @@ export default function Post(){
                                     <IonIcon name="heart" onClick={() => {
                                         setLikeStatus();
                                     }}/>
-                                    <LikesCount>14  likes</LikesCount>
+                                    <LikesCount>{likeCount}</LikesCount>
                                 </>
                                 :
                                 <>
                                     <IonIcon name="heart-outline" onClick={() => {
                                         setLikeStatus();
                                     }}/>
-                                    <LikesCount>14 likes</LikesCount>
+                                    <LikesCount>{likeCount}</LikesCount>
                                 </>
                             }
                             
                         </LikesBox>
                     </Aside>
                     <PostContainer>
-                        <Name>Rick Sanchez</Name>
+                        <Name>{username}</Name>
                         <Description>
-                            Muito maneiro esse tutorial de Material UI
-                            com React, deem uma olhada! 
+                            {userText}
                                 <Hashtags> #react #material</Hashtags>
                         </Description>
                         <LinkContainer>
                             <LinkBox>
-                                <LinkTittle>Como aplicar o Material UI em um projeto React</LinkTittle>
-                                <LinkDescription>Hey! I have moved this tutorial to my personal blog. Same content, new location. Sorry about making you click through to another page.</LinkDescription>
-                                <Link>https://medium.com/@pshrmn/a-simple-react-router</Link>
+                                <LinkTittle>{linkTitle}</LinkTittle>
+                                <LinkDescription>{linkDescription}</LinkDescription>
+                                <Link href={link}>{link}</Link>
                             </LinkBox>
-                            <LinkImage src={descriptionImage}/>
+                            <LinkImage src={linkImage}/>
                         </LinkContainer>
                     </PostContainer>
                 </Container>           
@@ -84,4 +84,6 @@ export default function Post(){
             }
         }
     }
+
+    
 }
