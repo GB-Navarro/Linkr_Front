@@ -45,7 +45,7 @@ export const UrlInput = styled.input`
     padding: 6px 0px 8px 5px;
 `
 
-export const TextInput = styled.input`
+export const TextInput = styled.textarea`
     width: 100%;
     background-color: #EFEFEF;
     border-radius: 5px;
@@ -63,13 +63,13 @@ export const TextInput = styled.input`
 export const Button = styled.input`
     width: 122px;
     height: 22px;
-    background-color: #1877F2;
-    border: 1px solid #1877F2;
+    background-color: ${props => props.state === true ? "#1877F2" : "#D3D3D3" };
+    border: 1px solid ${props => props.state === true ? "#1877F2" : "#D3D3D3" };
     border-radius: 5px;
     font-family: 'Lato', sans-serif;
     font-weight: 700;
     font-size: 13px;
-    color: #FFFFFF;
+    color: ${props => props.state === true ? "#FFFFFF" : "#949494"};
 `
 
 
@@ -81,7 +81,7 @@ export const ButtonBox = styled.div`
     margin-left: 5px;  
 `
 
-export const FormBox = styled.article`
+export const FormBox = styled.form`
     width: 100%;
 `
 

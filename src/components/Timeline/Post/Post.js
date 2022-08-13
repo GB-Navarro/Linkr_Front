@@ -2,8 +2,11 @@ import { IonIcon } from "react-ion-icon";
 import { Section, Container,Name, Description, Hashtags, LinkContainer, LinkBox, LinkTittle, LinkDescription, Link, LinkImage, PostContainer, Aside, ProfileImageBox, ProfileImage, LikesBox, LikesCount } from "./styles.js";
 import descriptionImage from "./../../../assets/images/descriptionImage.png"
 import profile from "./../../../assets/images/profile.jpg"
+import { useState } from "react";
 
 export default function Post(){
+    const [postWasLiked, setPostWasLiked] = useState(false);
+
     return(
         <>
             <Section>
@@ -12,9 +15,24 @@ export default function Post(){
                         <ProfileImageBox>
                             <ProfileImage src={profile} />
                         </ProfileImageBox>
-                        <LikesBox>
-                            <IonIcon name="heart-outline"/>
-                            <LikesCount>13 likes</LikesCount>
+                        <LikesBox postWasLiked={postWasLiked}>
+                            {
+                                postWasLiked ?
+                                <>
+                                    <IonIcon name="heart" onClick={() => {
+                                        setLikeStatus();
+                                    }}/>
+                                    <LikesCount>14  likes</LikesCount>
+                                </>
+                                :
+                                <>
+                                    <IonIcon name="heart-outline" onClick={() => {
+                                        setLikeStatus();
+                                    }}/>
+                                    <LikesCount>14 likes</LikesCount>
+                                </>
+                            }
+                            
                         </LikesBox>
                     </Aside>
                     <PostContainer>
@@ -37,4 +55,12 @@ export default function Post(){
             </Section>
         </>
     )
+
+    function setLikeStatus(){
+        if(postWasLiked){
+            setPostWasLiked(false);
+        }else{
+            setPostWasLiked(true);
+        }
+    }
 }
