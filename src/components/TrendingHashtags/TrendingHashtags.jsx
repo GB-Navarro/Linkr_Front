@@ -17,7 +17,7 @@ export default function TrendingHashtags({update}) {
             <h3>trending</h3>
             <SideBarLine/>
             <HashtagsHolder>
-                {trending.map((hashtag) => {  //.hashtag é o nome usado na table de hashtags do postgres
+                {trending.map((hashtag) => { 
                     const tag = hashtag.hashtag.split("#")[1]; 
                     return(
                         <p key={hashtag.hashtag}>
