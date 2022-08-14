@@ -19,7 +19,7 @@ export default function Timeline(){
                             timelineFunctions.getPosts(posts, setPosts);
                         }}> timeline </Tittle>
                 </TittleBox>
-                <Publish></Publish>
+                <Publish posts={posts} setPosts={setPosts}></Publish>
                 {
                     posts.length > 0 ? 
                     <>

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-async function sendPost(e, setFormEnabled, url, text, setUrl, setText ){
+async function sendPost(e, setFormEnabled, url, text, setUrl, setText, posts, setPosts){
     e.preventDefault();
     setFormEnabled(false);
     //5e23c49f-fd86-4921-a338-dc90a235b05b
@@ -20,6 +20,7 @@ async function sendPost(e, setFormEnabled, url, text, setUrl, setText ){
         setUrl("");
         setText("");
         setFormEnabled(true);
+        await getPosts(posts, setPosts);
     }catch(error){
         console.log(error);
         alert("Houve um erro ao publicar seu link");

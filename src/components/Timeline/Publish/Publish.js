@@ -3,8 +3,8 @@ import { useState } from "react";
 import profile from "./../../../assets/images/profile.jpg"
 import timelineFunctions from "../functions/timelineFunctions.js";
 
-export default function Publish(){
-
+export default function Publish(props){
+    
     const [url, setUrl] = useState("");
     const [text, setText] = useState("");
     const [formEnabled, setFormEnabled] = useState(true);
@@ -23,7 +23,7 @@ export default function Publish(){
                         {
                             formEnabled ?
                             <>
-                                <FormBox onSubmit={(e) => timelineFunctions.sendPost(e, setFormEnabled, url, text, setUrl, setText )}>
+                                <FormBox onSubmit={(e) => timelineFunctions.sendPost(e, setFormEnabled, url, text, setUrl, setText, props.posts, props.setPosts)}>
                                     <UrlInput type="url" placeholder="http://..." value={url} onChange={(e) => setUrl(e.target.value)} required></UrlInput>
                                     <TextInput rows="5" placeholder="Awesome article about #javascript" value={text} onChange={(e) => setText(e.target.value)}></TextInput>
                                     <ButtonBox>
@@ -33,7 +33,7 @@ export default function Publish(){
                             </>
                             :
                             <>
-                                <FormBox onSubmit={(e) => timelineFunctions.sendPost(e, setFormEnabled, url, text, setUrl, setText )}>
+                                <FormBox onSubmit={(e) => timelineFunctions.sendPost(e, setFormEnabled, url, text, setUrl, setText,props.posts, props.setPosts )}>
                                     <UrlInput type="url" placeholder="http://..." value={url} onChange={(e) => setUrl(e.target.value)} disabled></UrlInput>
                                     <TextInput rows="5" placeholder="Awesome article about #javascript" value={text} onChange={(e) => setText(e.target.value)} disabled></TextInput>
                                     <ButtonBox>
