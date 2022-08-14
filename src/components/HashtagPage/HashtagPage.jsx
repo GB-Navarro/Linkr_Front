@@ -2,8 +2,8 @@ import {useEffect, useState, useContext} from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-import UserContext from "../../contexts/UserContext";
-import TimeLine from "../../TimeLine/TimeLine";
+import UserContext from "../contexts/UserContext";
+import TimeLine from "../components/TimeLine/TimeLine";
 
 
 export default function HashtagPage({ updateState }){
