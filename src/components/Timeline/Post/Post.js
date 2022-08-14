@@ -1,5 +1,5 @@
 import { IonIcon } from "react-ion-icon";
-import { Section, Container,Name, Description, Hashtags, LinkContainer, LinkBox, LinkTittle, LinkDescription, Link, LinkImage, PostContainer, Aside, ProfileImageBox, ProfileImage, LikesBox, LikesCount } from "./styles.js";
+import { Section, Container,Name, Description, Hashtags, LinkContainer, LinkBox, LinkTittle, LinkDescription, Link, LinkImage, PostContainer, Aside, ProfileImageBox, ProfileImage, LikesBox, LikesCount, Box, IconBox } from "./styles.js";
 import profile from "./../../../assets/images/profile.jpg"
 import { useState } from "react";
 import axios from "axios";
@@ -37,7 +37,12 @@ export default function Post(props){
                         </LikesBox>
                     </Aside>
                     <PostContainer>
-                        <Name>{username}</Name>
+                        <Box>
+                            <Name>{username}</Name>
+                            <IconBox>
+                                <IonIcon name="trash"/>
+                            </IconBox>
+                        </Box>
                         <Description>
                             {userText}
                                 <Hashtags> #react #material</Hashtags>

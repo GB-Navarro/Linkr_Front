@@ -105,3 +105,12 @@ export const LikesCount = styled.p`
     font-weight: 400;
     color: #FFFFFF;
 `
+export const Box = styled.div`
+    display: flex;
+    justify-content: space-between;
+`
+
+export const IconBox = styled.div`
+    padding-top:21px;
+    color: #FFFFFF;
+`
