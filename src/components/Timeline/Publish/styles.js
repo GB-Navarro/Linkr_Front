@@ -58,6 +58,8 @@ export const TextInput = styled.textarea`
     font-size: 13px;
     color: #949494;
     padding: 10px 0px 21px 5px;
+    resize: none;
+
 `
 
 export const Button = styled.input`

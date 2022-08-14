@@ -28,6 +28,7 @@ export const Description = styled.h2`
     color: #B7B7B7;
     font-size: 15px;
     font-weight: 400;
+    margin-top: 0;
 `
 
 export const Hashtags = styled.p`
@@ -104,4 +105,31 @@ export const LikesCount = styled.p`
     font-size: 12px;
     font-weight: 400;
     color: #FFFFFF;
+`
+
+export const Top = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
+
+export const Icons = styled.div`
+    width: 40px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    color: #FFFFFF;
+`
+
+export const EditBox = styled.textarea`
+    width: 100%;
+    background-color: #EFEFEF;
+    border-radius: 5px;
+    border: 1px solid #EFEFEF;
+    color: #4C4C4C;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Lato', sans-serif;
+    padding: 5px 10px;
+    resize: none;
 `
