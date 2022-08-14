@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import GlobalStyle from "./assets/styles/globalStyle.js"
 import Timeline from "./components/Timeline/Timeline.js";
-import HashtagPage from '../components/HashtagPage/HashtagPage.jsx';
+import HashtagPage from './components/HashtagPage/HashtagPage.jsx';
 
 export default function App() {
   const [update, setUpdate] = useState(false)
