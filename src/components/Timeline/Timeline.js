@@ -4,7 +4,7 @@ import Header from "../Header/Header.js";
 import { useState } from "react";
 import { Main, TittleBox, Tittle, LoadingBox } from "./styles.js"
 import axios from "axios";
-import { Audio, BallTriangle } from "react-loader-spinner";
+import { BallTriangle } from "react-loader-spinner";
  
 export default function Timeline(){
     
@@ -26,7 +26,7 @@ export default function Timeline(){
                         {posts.map((post) => {
                             return(
                                 <>
-                                    <Post username={post.userId} userText={post.userText} linkTitle={post.urlTitle} linkDescription={post.urlDescription} link={post.url} linkImage={post.urlImage} likeCount={post.likeCount}></Post>        
+                                    <Post username={post.username} userText={post.userText} linkTitle={post.urlTitle} linkDescription={post.urlDescription} link={post.url} linkImage={post.urlImage} likeCount={post.likeCount}></Post>        
                                 </>
                             )
                         })}
@@ -43,6 +43,7 @@ export default function Timeline(){
     )
 
     async function getPosts(){
+        
         const token = "5e23c49f-fd86-4921-a338-dc90a235b05b";
         const config = {
             headers:{
@@ -50,7 +51,7 @@ export default function Timeline(){
             }
         }
         try{
-            const promisse = await axios.get("http://localhost:5000/timeline",config);
+            const promisse = await axios.get("http://localhost:5000/posts",config);
             setPosts(...posts, promisse.data);
         }catch(error){
             console.log(error)
