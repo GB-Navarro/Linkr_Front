@@ -8,6 +8,7 @@ import axios from "axios";
 export default function Post() {
     const [postWasLiked, setPostWasLiked] = useState(false);
     const [openEditBox, setOpenEditBox] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     let originalDescription = "Muito maneiro esse tutorial de Material UI com React, deem uma olhada!";
     const [newDescription, setNewDescription] = useState(originalDescription);
@@ -50,7 +51,7 @@ export default function Post() {
                         </Top>
                         <Description>
                             {
-                                !openEditBox ? originalDescription : <EditBox type="text" value={newDescription} onChange={(e) => setNewDescription(e.target.value)} autoFocus onFocus={focusOnTextareaEnd}></EditBox>
+                                !openEditBox ? originalDescription : <EditBox type="text" value={newDescription} onChange={(e) => setNewDescription(e.target.value)} autoFocus onFocus={focusOnTextareaEnd} onKeyDown={sendNewDescription} disabled={loading}></EditBox>
                             }
                             <Hashtags> #react #material</Hashtags>
                         </Description>
@@ -100,5 +101,44 @@ export default function Post() {
         let text = event.target.value;
         event.target.value = '';
         event.target.value = text;
+    }
+
+    async function sendNewDescription(event) {
+        if (event.key === "Escape") {
+            setOpenEditBox(false);
+            setNewDescription(originalDescription);
+        }
+        if (event.key === "Enter" && !event.shiftKey) {
+            event.preventDefault();
+            setLoading(true);
+
+            const token = localStorage.getItem("token");
+            const postId = 1;
+
+            const URL = `http://localhost:4000/posts/edit/${postId}`;
+            const config = {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            };
+            const body = {
+                text: newDescription
+            }
+
+            const promise = axios.put(URL, body, config);
+
+            promise.then(res => {
+                setLoading(false);
+                setOpenEditBox(false);
+                setNewDescription(originalDescription);
+            });
+            promise.catch(err => {
+                alert(err.response.data);
+                setLoading(false);
+                setOpenEditBox(false);
+                setNewDescription(originalDescription);
+            });
+
+        }
     }
 }
