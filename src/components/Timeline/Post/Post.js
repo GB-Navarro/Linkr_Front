@@ -1,12 +1,12 @@
 import { IonIcon } from "react-ion-icon";
 import { Section, Container, Name, Description, Hashtags, LinkContainer, LinkBox, LinkTittle, LinkDescription, Link, LinkImage, PostContainer, Aside, ProfileImageBox, ProfileImage, LikesBox, LikesCount, Top, Icons, EditBox } from "./styles.js";
-import descriptionImage from "./../../../assets/images/descriptionImage.png"
 import profile from "./../../../assets/images/profile.jpg"
 import { useState } from "react";
 import axios from "axios";
 
-export default function Post() {
+export default function Post(props) {
     const [postWasLiked, setPostWasLiked] = useState(false);
+    const { username, userText, linkTitle, linkDescription, link, linkImage, likeCount } = props;
     const [openEditBox, setOpenEditBox] = useState(false);
     const [loading, setLoading] = useState(false);
 
@@ -28,22 +28,21 @@ export default function Post() {
                                         <IonIcon name="heart" onClick={() => {
                                             setLikeStatus();
                                         }} />
-                                        <LikesCount>14  likes</LikesCount>
+                                        <LikesCount>{likeCount}</LikesCount>
                                     </>
                                     :
                                     <>
                                         <IonIcon name="heart-outline" onClick={() => {
                                             setLikeStatus();
                                         }} />
-                                        <LikesCount>14 likes</LikesCount>
+                                        <LikesCount>{likeCount}</LikesCount>
                                     </>
                             }
-
                         </LikesBox>
                     </Aside>
                     <PostContainer>
                         <Top>
-                            <Name>Rick Sanchez</Name>
+                            <Name>{username}</Name>
                             <Icons>
                                 <ion-icon name="pencil-sharp" onClick={() => setOpenEditBox(!openEditBox)}></ion-icon>
                                 <ion-icon name="trash-sharp"></ion-icon>
@@ -51,21 +50,21 @@ export default function Post() {
                         </Top>
                         <Description>
                             {
-                                !openEditBox ? originalDescription : <EditBox type="text" value={newDescription} onChange={(e) => setNewDescription(e.target.value)} autoFocus onFocus={focusOnTextareaEnd} onKeyDown={sendNewDescription} disabled={loading}></EditBox>
+                                !openEditBox ? { userText } : <EditBox type="text" value={newDescription} onChange={(e) => setNewDescription(e.target.value)} autoFocus onFocus={focusOnTextareaEnd} onKeyDown={sendNewDescription} disabled={loading}></EditBox>
                             }
                             <Hashtags> #react #material</Hashtags>
                         </Description>
                         <LinkContainer>
                             <LinkBox>
-                                <LinkTittle>Como aplicar o Material UI em um projeto React</LinkTittle>
-                                <LinkDescription>Hey! I have moved this tutorial to my personal blog. Same content, new location. Sorry about making you click through to another page.</LinkDescription>
-                                <Link>https://medium.com/@pshrmn/a-simple-react-router</Link>
+                                <LinkTittle>{linkTitle}</LinkTittle>
+                                <LinkDescription>{linkDescription}</LinkDescription>
+                                <Link href={link}>{link}</Link>
                             </LinkBox>
-                            <LinkImage src={descriptionImage} />
-                        </LinkContainer>
-                    </PostContainer>
-                </Container>
-            </Section>
+                            <LinkImage src={linkImage}/>
+                        </LinkContainer >
+                    </PostContainer >
+                </Container >
+            </Section >
         </>
     )
 
