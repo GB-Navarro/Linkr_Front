@@ -1,7 +1,7 @@
 import Publish from "./Publish/Publish.js";
 import Post from "./Post/Post.js";
 import Header from "../Header/Header.js";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Main, TittleBox, Tittle, LoadingBox, Text } from "./styles.js"
 import { BallTriangle } from "react-loader-spinner";
 import timelineFunctions from "./functions/timelineFunctions.js";
@@ -12,6 +12,11 @@ export default function Timeline(){
     let [error, setError] = useState("");
     let [loadingState, setLoadingState] = useState(false); 
 
+    useEffect(() => {
+        setTimeout(() => {
+            timelineFunctions.getPosts(posts, setPosts, setError, setLoadingState);
+        }, 100)
+    },[])
 
     return(
         <>
@@ -60,5 +65,7 @@ export default function Timeline(){
             </Main>
         </>
     )
+
+    
 }
 
