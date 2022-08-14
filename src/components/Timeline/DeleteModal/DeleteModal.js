@@ -2,11 +2,11 @@ import Modal from "react-modal";
 import customStyles from "../functions/modalStyles.js";
 import { afterOpenModal, closeModal } from "../functions/modalFunctions.js";
 import {DeleteText, DeleteTextBox, Button, ButtonBox} from "./styles.js";
-import { useState } from "react";
+
 export default function DeleteModal(props){
 
     let subtitle;
-    
+
     Modal.setAppElement('#root');
 
     return(
@@ -17,7 +17,7 @@ export default function DeleteModal(props){
                         <DeleteText>to delete this post?</DeleteText>
                     </DeleteTextBox>
                     <ButtonBox>
-                        <Button>No, go back</Button>
+                        <Button onClick={() => props.setIsOpen(false)}>No, go back</Button>
                         <Button>Yes, delete it</Button>
                     </ButtonBox>
             </Modal>
