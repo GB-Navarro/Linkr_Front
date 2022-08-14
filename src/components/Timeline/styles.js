@@ -27,3 +27,14 @@ export const LoadingBox = styled.div`
     height: 50px;
     margin-top:15vh;
 `
+
+export const Text = styled.h1`
+    color: white;
+    font-size:12px;
+    @media(max-width: 405px){
+        font-size:8px;
+    }
+    @media(min-width:600px){
+        font-size:18px;
+    }
+`

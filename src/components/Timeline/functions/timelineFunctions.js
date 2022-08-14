@@ -1,6 +1,6 @@
 import axios from "axios";
 
-async function sendPost(e, setFormEnabled, url, text, setUrl, setText, posts, setPosts){
+async function sendPost(e, setFormEnabled, url, text, setUrl, setText, posts, setPosts, setError, setLoadingState){
     e.preventDefault();
     setFormEnabled(false);
     //5e23c49f-fd86-4921-a338-dc90a235b05b
@@ -20,7 +20,7 @@ async function sendPost(e, setFormEnabled, url, text, setUrl, setText, posts, se
         setUrl("");
         setText("");
         setFormEnabled(true);
-        await getPosts(posts, setPosts);
+        await getPosts(posts, setPosts, setError, setLoadingState);
     }catch(error){
         console.log(error);
         alert("Houve um erro ao publicar seu link");
@@ -28,7 +28,7 @@ async function sendPost(e, setFormEnabled, url, text, setUrl, setText, posts, se
     }   
 }
 
-async function getPosts(posts, setPosts){
+async function getPosts(posts, setPosts, setError, setLoadingState){
     const token = "5e23c49f-fd86-4921-a338-dc90a235b05b";
     const config = {
         headers:{
@@ -36,10 +36,13 @@ async function getPosts(posts, setPosts){
         }
     }
     try{
+        setLoadingState(true);
         const promisse = await axios.get("http://localhost:5000/posts",config);
-        setPosts(...posts, promisse.data);
-    }catch(error){
-        console.log(error)
+        setLoadingState(false);
+        setPosts(promisse.data);
+    }catch(promisseError){
+        console.log(promisseError)
+        setError("An error occured while trying to fetch the posts, please refresh the page");
     }
 }
 

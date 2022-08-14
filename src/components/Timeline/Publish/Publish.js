@@ -23,7 +23,7 @@ export default function Publish(props){
                         {
                             formEnabled ?
                             <>
-                                <FormBox onSubmit={(e) => timelineFunctions.sendPost(e, setFormEnabled, url, text, setUrl, setText, props.posts, props.setPosts)}>
+                                <FormBox onSubmit={(e) => timelineFunctions.sendPost(e, setFormEnabled, url, text, setUrl, setText, props.posts, props.setPosts, props.setError, props.setLoadingState)}>
                                     <UrlInput type="url" placeholder="http://..." value={url} onChange={(e) => setUrl(e.target.value)} required></UrlInput>
                                     <TextInput rows="5" placeholder="Awesome article about #javascript" value={text} onChange={(e) => setText(e.target.value)}></TextInput>
                                     <ButtonBox>
@@ -33,7 +33,7 @@ export default function Publish(props){
                             </>
                             :
                             <>
-                                <FormBox onSubmit={(e) => timelineFunctions.sendPost(e, setFormEnabled, url, text, setUrl, setText,props.posts, props.setPosts )}>
+                                <FormBox onSubmit={(e) => timelineFunctions.sendPost(e, setFormEnabled, url, text, setUrl, setText,props.posts, props.setPosts, props.setError, props.setLoadingState)}>
                                     <UrlInput type="url" placeholder="http://..." value={url} onChange={(e) => setUrl(e.target.value)} disabled></UrlInput>
                                     <TextInput rows="5" placeholder="Awesome article about #javascript" value={text} onChange={(e) => setText(e.target.value)} disabled></TextInput>
                                     <ButtonBox>
