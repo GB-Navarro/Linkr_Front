@@ -10,6 +10,7 @@ export default function Post() {
     const [openEditBox, setOpenEditBox] = useState(false);
 
     let originalDescription = "Muito maneiro esse tutorial de Material UI com React, deem uma olhada!";
+    const [newDescription, setNewDescription] = useState(originalDescription);
 
     return (
         <>
@@ -49,7 +50,7 @@ export default function Post() {
                         </Top>
                         <Description>
                             {
-                                !openEditBox ? originalDescription : <EditBox type="text" value={originalDescription}></EditBox>
+                                !openEditBox ? originalDescription : <EditBox type="text" value={newDescription} onChange={(e) => setNewDescription(e.target.value)} autoFocus onFocus={focusOnTextareaEnd}></EditBox>
                             }
                             <Hashtags> #react #material</Hashtags>
                         </Description>
@@ -93,5 +94,11 @@ export default function Post() {
                 console.log(error);
             }
         }
+    }
+
+    async function focusOnTextareaEnd(event) {
+        let text = event.target.value;
+        event.target.value = '';
+        event.target.value = text;
     }
 }
