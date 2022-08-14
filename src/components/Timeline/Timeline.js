@@ -3,8 +3,8 @@ import Post from "./Post/Post.js";
 import Header from "../Header/Header.js";
 import { useState } from "react";
 import { Main, TittleBox, Tittle, LoadingBox } from "./styles.js"
-import axios from "axios";
 import { BallTriangle } from "react-loader-spinner";
+import timelineFunctions from "./functions/timelineFunctions.js";
  
 export default function Timeline(){
     
@@ -16,7 +16,7 @@ export default function Timeline(){
             <Main>
                 <TittleBox>
                         <Tittle onClick={() => {
-                            getPosts();
+                            timelineFunctions.getPosts(posts, setPosts);
                         }}> timeline </Tittle>
                 </TittleBox>
                 <Publish></Publish>
@@ -41,20 +41,4 @@ export default function Timeline(){
             </Main>
         </>
     )
-
-    async function getPosts(){
-        
-        const token = "5e23c49f-fd86-4921-a338-dc90a235b05b";
-        const config = {
-            headers:{
-                Authorization: `Bearer ${token}`
-            }
-        }
-        try{
-            const promisse = await axios.get("http://localhost:5000/posts",config);
-            setPosts(...posts, promisse.data);
-        }catch(error){
-            console.log(error)
-        }
-    }
 }

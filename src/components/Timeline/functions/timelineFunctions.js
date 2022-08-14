@@ -27,8 +27,24 @@ async function sendPost(e, setFormEnabled, url, text, setUrl, setText ){
     }   
 }
 
+async function getPosts(posts, setPosts){
+    const token = "5e23c49f-fd86-4921-a338-dc90a235b05b";
+    const config = {
+        headers:{
+            Authorization: `Bearer ${token}`
+        }
+    }
+    try{
+        const promisse = await axios.get("http://localhost:5000/posts",config);
+        setPosts(...posts, promisse.data);
+    }catch(error){
+        console.log(error)
+    }
+}
+
 const timelineFunctions = {
-    sendPost
+    sendPost,
+    getPosts
 }
 
 export default timelineFunctions;
