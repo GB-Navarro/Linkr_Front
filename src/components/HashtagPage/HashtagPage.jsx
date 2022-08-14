@@ -2,7 +2,7 @@ import {useEffect, useState, useContext} from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-import UserContext from "../../../contexts/UserContext";
+import UserContext from "../../contexts/UserContext";
 import TimeLine from "../../TimeLine/TimeLine";
 
 
