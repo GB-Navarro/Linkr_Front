@@ -113,4 +113,13 @@ export const Box = styled.div`
 export const IconBox = styled.div`
     padding-top:21px;
     color: #FFFFFF;
+    display:${props => props.userId === props.postOwnerId ? 'block' : 'none'};
 `
+
+export const InfoBox = styled.div`
+    display:none;
+`
+
+export const UserId = styled.h1``
+
+export const PostId = styled.h1``

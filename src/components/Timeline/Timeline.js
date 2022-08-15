@@ -6,16 +6,21 @@ import timelineFunctions from "./functions/timelineFunctions.js";
 import { useState, useEffect } from "react";
 import { Main, TittleBox, Tittle, LoadingBox, Text } from "./styles.js"
 import { BallTriangle } from "react-loader-spinner";
+import { useContext } from "react";
+import UserContext from "./../../contexts/UserContext.js";
 
 export default function Timeline(){
+    const {userData, setUserData} = useContext(UserContext);
     const [posts, setPosts] = useState([]);
     const [modalIsOpen, setIsOpen] = useState(false);
     let [error, setError] = useState("");
     let [loadingState, setLoadingState] = useState(false); 
     
     useEffect(() => {
-        setTimeout(() => {
+        setTimeout( async () => {
             timelineFunctions.getPosts(posts, setPosts, setError, setLoadingState);
+            const data = await timelineFunctions.getUserDataFromToken('token');
+            setUserData(data);
         }, 100)
     },[])
 
@@ -25,7 +30,7 @@ export default function Timeline(){
             <Main>
                 <DeleteModal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen}></DeleteModal>
                 <TittleBox>
-                        <Tittle> timeline </Tittle>
+                        <Tittle onClick={() => console.log(userData)}> timeline </Tittle>
                 </TittleBox>
                 <Publish posts={posts} setPosts={setPosts} setError={setError} setLoadingState={setLoadingState}></Publish>
                 {
@@ -48,7 +53,7 @@ export default function Timeline(){
                                         {posts.map((post) => {
                                             return(
                                                 <>
-                                                    <Post username={post.username} userText={post.userText} linkTitle={post.urlTitle} linkDescription={post.urlDescription} link={post.url} linkImage={post.urlImage} likeCount={post.likeCount} modalIsOpen={modalIsOpen} setIsOpen={setIsOpen}></Post>        
+                                                    <Post username={post.username} userText={post.userText} linkTitle={post.urlTitle} linkDescription={post.urlDescription} link={post.url} linkImage={post.urlImage} likeCount={post.likeCount} modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} postId={post.postId} userId={post.userId} ></Post>        
                                                 </>
                                             )
                                         })}
