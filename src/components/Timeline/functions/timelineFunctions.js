@@ -62,10 +62,29 @@ async function getUserDataFromToken(token){
     }
 }
 
+async function deletePost(postId, token, posts, setPosts, setError, setLoadingState, setIsOpen){
+    console.log(postId);
+    token = "4096a77a-f637-4767-a6dc-e01f93e4613c";
+    const config = {
+        headers:{
+            Authorization: `Bearer 5e23c49f-fd86-4921-a338-dc90a235b05b`
+        }
+    }
+    try{
+        const promisse = await axios.delete(`http://localhost:5000/post/${postId}`,config);
+        console.log(promisse)
+        setIsOpen(false);
+        await getPosts(posts, setPosts, setError, setLoadingState);
+    }catch(error){
+        console.log(error);
+    }
+}
+
 const timelineFunctions = {
     sendPost,
     getPosts,
-    getUserDataFromToken
+    getUserDataFromToken,
+    deletePost
 }
 
 export default timelineFunctions;

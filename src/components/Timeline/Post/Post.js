@@ -5,6 +5,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useContext } from "react";
 import UserContext from "../../../contexts/UserContext.js";
+import timelineFunctions from "../functions/timelineFunctions.js";
 
 export default function Post(props){
     const {userData} = useContext(UserContext);
@@ -48,8 +49,6 @@ export default function Post(props){
                             <Name>{username}</Name>
                             <IconBox userId={userData.userId} postOwnerId={postOwnerId}>
                                 <IonIcon name="trash" onClick={() => {
-                                    console.log("userId", userData.userId);
-                                    console.log("postOwnerId", postOwnerId);
                                 if(modalIsOpen){
                                     setIsOpen(false);   
                                 }else{

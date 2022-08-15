@@ -9,7 +9,8 @@ export default function App() {
 
   const [userData, setUserData] = useState({
     userId:"",
-    userImageUrl:""
+    userImageUrl:"",
+    token:""
   });
 
   return (

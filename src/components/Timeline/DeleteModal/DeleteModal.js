@@ -2,11 +2,12 @@ import Modal from "react-modal";
 import customStyles from "../functions/modalStyles.js";
 import { afterOpenModal, closeModal } from "../functions/modalFunctions.js";
 import {DeleteText, DeleteTextBox, Button, ButtonBox} from "./styles.js";
+import timelineFunctions from "../functions/timelineFunctions.js";
 
 export default function DeleteModal(props){
 
     let subtitle;
-
+    const { posts, setPosts, setError, setLoadingState } = props;
     Modal.setAppElement('#root');
 
     return(
@@ -18,7 +19,7 @@ export default function DeleteModal(props){
                     </DeleteTextBox>
                     <ButtonBox>
                         <Button onClick={() => props.setIsOpen(false)}>No, go back</Button>
-                        <Button>Yes, delete it</Button>
+                        <Button onClick={() => timelineFunctions.deletePost(21,'5e23c49f-fd86-4921-a338-dc90a235b05b', posts, setPosts, setError, setLoadingState, props.setIsOpen)}>Yes, delete it</Button>
                     </ButtonBox>
             </Modal>
         </>

@@ -15,7 +15,6 @@ export default function Timeline(){
     const [modalIsOpen, setIsOpen] = useState(false);
     let [error, setError] = useState("");
     let [loadingState, setLoadingState] = useState(false); 
-    
     useEffect(() => {
         setTimeout( async () => {
             timelineFunctions.getPosts(posts, setPosts, setError, setLoadingState);
@@ -28,7 +27,7 @@ export default function Timeline(){
         <>
             <Header></Header>
             <Main>
-                <DeleteModal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen}></DeleteModal>
+                <DeleteModal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} posts={posts} setPosts={setPosts} setError={setError} setLoadingState={setLoadingState}></DeleteModal>
                 <TittleBox>
                         <Tittle onClick={() => console.log(userData)}> timeline </Tittle>
                 </TittleBox>
