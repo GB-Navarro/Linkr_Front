@@ -13,7 +13,7 @@ async function sendPost(e, setFormEnabled, url, text, setUrl, setText, posts, se
         text:text
     }
     try{
-        const promisse = await axios.post("http://localhost:5000/publish",post,config);
+        const promisse = await axios.post("https://driven-linkr-api.herokuapp.com/publish",post,config);
         setUrl("");
         setText("");
         setFormEnabled(true);
@@ -33,7 +33,7 @@ async function getPosts(posts, setPosts, setError, setLoadingState, token){
     }
     try{
         setLoadingState(true);
-        const promisse = await axios.get("http://localhost:5000/posts",config);
+        const promisse = await axios.get("https://driven-linkr-api.herokuapp.com/posts",config);
         setLoadingState(false);
         setPosts(promisse.data);
     }catch(promisseError){
@@ -49,7 +49,7 @@ async function getUserDataFromToken(token){
         }
     }
     try{
-        const promisse = await axios.get("http://localhost:5000/user",config);
+        const promisse = await axios.get("https://driven-linkr-api.herokuapp.com/user",config);
         const userData = promisse.data;
         return userData;
     }catch(error){
