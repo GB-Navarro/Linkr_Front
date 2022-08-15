@@ -4,10 +4,13 @@ import { useState } from "react";
 
 import { Page, LeftSide, RightSide, Input, Button, SignUpLink } from "./styles.js";
 import { ThreeDots } from 'react-loader-spinner';
+import TokenContext from "./../../contexts/TokenContext.js"
+import { useContext } from "react";
 
 export default function SignInPage() {
     const navigate = useNavigate();
 
+    const {setToken} = useContext(TokenContext);
     const [loading, setLoading] = useState(false);
     const [login, setLogin] = useState({
         email: "",
@@ -38,13 +41,14 @@ export default function SignInPage() {
     function signIn(event) {
         event.preventDefault();
 
-        const URL = "http://localhost:4000/sign-in";
+        const URL = "https://driven-linkr-api.herokuapp.com/sign-in";
 
         setLoading(true);
         const promise = axios.post(URL, login);
 
         promise.then(res => {
             localStorage.setItem("token", (res.data));
+            setToken(res.data);
             navigate("/timeline");
         });
         promise.catch(err => {

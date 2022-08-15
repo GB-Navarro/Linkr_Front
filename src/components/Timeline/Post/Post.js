@@ -5,7 +5,6 @@ import { useState } from "react";
 import axios from "axios";
 import { useContext } from "react";
 import UserContext from "../../../contexts/UserContext.js";
-import timelineFunctions from "../functions/timelineFunctions.js";
 
 export default function Post(props){
     const {userData} = useContext(UserContext);
