@@ -1,11 +1,8 @@
 import axios from "axios";
 
-async function sendPost(e, setFormEnabled, url, text, setUrl, setText, posts, setPosts, setError, setLoadingState){
+async function sendPost(e, setFormEnabled, url, text, setUrl, setText, posts, setPosts, setError, setLoadingState, token){
     e.preventDefault();
     setFormEnabled(false);
-    //5e23c49f-fd86-4921-a338-dc90a235b05b
-    //4096a77a-f637-4767-a6dc-e01f93e4613c
-    const token = "4096a77a-f637-4767-a6dc-e01f93e4613c";
     const config = {
         headers:{
             Authorization: `Bearer ${token}`
@@ -20,7 +17,7 @@ async function sendPost(e, setFormEnabled, url, text, setUrl, setText, posts, se
         setUrl("");
         setText("");
         setFormEnabled(true);
-        await getPosts(posts, setPosts, setError, setLoadingState);
+        await getPosts(posts, setPosts, setError, setLoadingState, token);
     }catch(error){
         console.log(error);
         alert("Houve um erro ao publicar seu link");
@@ -28,8 +25,7 @@ async function sendPost(e, setFormEnabled, url, text, setUrl, setText, posts, se
     }   
 }
 
-async function getPosts(posts, setPosts, setError, setLoadingState){
-    const token = "5e23c49f-fd86-4921-a338-dc90a235b05b";
+async function getPosts(posts, setPosts, setError, setLoadingState, token){
     const config = {
         headers:{
             Authorization: `Bearer ${token}`
@@ -47,10 +43,9 @@ async function getPosts(posts, setPosts, setError, setLoadingState){
 }
 
 async function getUserDataFromToken(token){
-    token = "4096a77a-f637-4767-a6dc-e01f93e4613c";
     const config = {
         headers:{
-            Authorization: `Bearer 5e23c49f-fd86-4921-a338-dc90a235b05b`
+            Authorization: `Bearer ${token}`
         }
     }
     try{
@@ -64,10 +59,9 @@ async function getUserDataFromToken(token){
 
 async function deletePost(postId, token, posts, setPosts, setError, setLoadingState, setIsOpen){
     console.log(postId);
-    token = "4096a77a-f637-4767-a6dc-e01f93e4613c";
     const config = {
         headers:{
-            Authorization: `Bearer 5e23c49f-fd86-4921-a338-dc90a235b05b`
+            Authorization: `Bearer ${token}`
         }
     }
     try{

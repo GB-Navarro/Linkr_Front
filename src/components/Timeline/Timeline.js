@@ -8,18 +8,21 @@ import { Main, TittleBox, Tittle, LoadingBox, Text } from "./styles.js"
 import { BallTriangle } from "react-loader-spinner";
 import { useContext } from "react";
 import UserContext from "./../../contexts/UserContext.js";
+import TokenContext from "./../../contexts/TokenContext.js";
 
 export default function Timeline(){
     const {userData, setUserData} = useContext(UserContext);
+    const {token} = useContext(TokenContext);
     const [posts, setPosts] = useState([]);
     const [modalIsOpen, setIsOpen] = useState(false);
     let [error, setError] = useState("");
-    let [loadingState, setLoadingState] = useState(false); 
+    let [loadingState, setLoadingState] = useState(false);
+     
     useEffect(() => {
         setTimeout( async () => {
-            timelineFunctions.getPosts(posts, setPosts, setError, setLoadingState);
-            const data = await timelineFunctions.getUserDataFromToken('token');
-            setUserData(data);
+            timelineFunctions.getPosts(posts, setPosts, setError, setLoadingState,token);
+            const data = await timelineFunctions.getUserDataFromToken(token);
+            await setUserData(data);
         }, 100)
     },[])
 
@@ -27,11 +30,11 @@ export default function Timeline(){
         <>
             <Header></Header>
             <Main>
-                <DeleteModal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} posts={posts} setPosts={setPosts} setError={setError} setLoadingState={setLoadingState}></DeleteModal>
+                <DeleteModal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} posts={posts} setPosts={setPosts} setError={setError} setLoadingState={setLoadingState} token={token}></DeleteModal>
                 <TittleBox>
-                        <Tittle onClick={() => console.log(userData)}> timeline </Tittle>
+                        <Tittle> timeline </Tittle>
                 </TittleBox>
-                <Publish posts={posts} setPosts={setPosts} setError={setError} setLoadingState={setLoadingState}></Publish>
+                <Publish posts={posts} setPosts={setPosts} setError={setError} setLoadingState={setLoadingState} token={token}></Publish>
                 {
                     error === "" ?
                     <>
@@ -52,7 +55,7 @@ export default function Timeline(){
                                         {posts.map((post) => {
                                             return(
                                                 <>
-                                                    <Post username={post.username} userText={post.userText} linkTitle={post.urlTitle} linkDescription={post.urlDescription} link={post.url} linkImage={post.urlImage} likeCount={post.likeCount} modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} postId={post.postId} userId={post.userId} ></Post>        
+                                                    <Post username={post.username} userText={post.userText} linkTitle={post.urlTitle} linkDescription={post.urlDescription} link={post.url} linkImage={post.urlImage} likeCount={post.likeCount} modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} postId={post.postId} userId={post.userId} token={token}></Post>        
                                                 </>
                                             )
                                         })}

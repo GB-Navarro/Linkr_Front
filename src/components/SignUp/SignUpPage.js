@@ -45,7 +45,7 @@ export default function SignUpPage() {
     function signUp(event) {
         event.preventDefault();
 
-        const URL = "http://localhost:4000/sign-up";
+        const URL = "http://localhost:5000/sign-up";
 
         setLoading(true);
         const promise = axios.post(URL, user);

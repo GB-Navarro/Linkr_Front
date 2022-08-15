@@ -7,7 +7,7 @@ import timelineFunctions from "../functions/timelineFunctions.js";
 export default function DeleteModal(props){
 
     let subtitle;
-    const { posts, setPosts, setError, setLoadingState } = props;
+    const { posts, setPosts, setError, setLoadingState, token } = props;
     Modal.setAppElement('#root');
 
     return(
@@ -19,7 +19,7 @@ export default function DeleteModal(props){
                     </DeleteTextBox>
                     <ButtonBox>
                         <Button onClick={() => props.setIsOpen(false)}>No, go back</Button>
-                        <Button onClick={() => timelineFunctions.deletePost(21,'5e23c49f-fd86-4921-a338-dc90a235b05b', posts, setPosts, setError, setLoadingState, props.setIsOpen)}>Yes, delete it</Button>
+                        <Button onClick={() => timelineFunctions.deletePost(21,token, posts, setPosts, setError, setLoadingState, props.setIsOpen)}>Yes, delete it</Button>
                     </ButtonBox>
             </Modal>
         </>
