@@ -1,13 +1,17 @@
 import { IonIcon } from "react-ion-icon";
-import { Section, Container,Name, Description, Hashtags, LinkContainer, LinkBox, LinkTittle, LinkDescription, Link, LinkImage, PostContainer, Aside, ProfileImageBox, ProfileImage, LikesBox, LikesCount } from "./styles.js";
+import { Section, Container,Name, Description, Hashtags, LinkContainer, LinkBox, LinkTittle, LinkDescription, Link, LinkImage, PostContainer, Aside, ProfileImageBox, ProfileImage, LikesBox, LikesCount, Box, IconBox, InfoBox, PostId, UserId } from "./styles.js";
 import profile from "./../../../assets/images/profile.jpg"
 import { useState } from "react";
 import axios from "axios";
+import { useContext } from "react";
+import UserContext from "../../../contexts/UserContext.js";
+import timelineFunctions from "../functions/timelineFunctions.js";
 
 export default function Post(props){
+    const {userData} = useContext(UserContext);
     const [postWasLiked, setPostWasLiked] = useState(false);
-    const {username, userText, linkTitle, linkDescription, link, linkImage, likeCount} = props;
-
+    const {postId, userId:postOwnerId, username, userText, linkTitle, linkDescription, link, linkImage, likeCount, modalIsOpen, setIsOpen} = props;
+    
     return(
         <>
             <Section>
@@ -37,7 +41,22 @@ export default function Post(props){
                         </LikesBox>
                     </Aside>
                     <PostContainer>
-                        <Name>{username}</Name>
+                        <InfoBox>
+                            <PostId>{postId}</PostId>
+                            <UserId>{postOwnerId}</UserId>
+                        </InfoBox>
+                        <Box>
+                            <Name>{username}</Name>
+                            <IconBox userId={userData.userId} postOwnerId={postOwnerId}>
+                                <IonIcon name="trash" onClick={() => {
+                                if(modalIsOpen){
+                                    setIsOpen(false);   
+                                }else{
+                                    setIsOpen(true);
+                                }
+                            }}/>
+                            </IconBox>
+                        </Box>
                         <Description>
                             {userText}
                                 <Hashtags> #react #material</Hashtags>
