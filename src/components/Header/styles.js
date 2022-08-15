@@ -22,6 +22,10 @@ export const Box = styled.section`
     margin-right: 25px;
     color: white;
     font-size: 25px;
+
+    img, ion-icon {
+        pointer-events: none;
+    }
 `
 
 export const Image = styled.img`
@@ -32,7 +36,7 @@ export const Image = styled.img`
 `
 
 export const LogoutBox = styled.section`
-    display:${props => props.display};
+    display: ${(props => !props.open ? "none" : "flex")};
     justify-content: flex-end;
 `
 
