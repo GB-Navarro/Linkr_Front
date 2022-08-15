@@ -73,9 +73,11 @@ async function deletePost(postId, token, posts, setPosts, setError, setLoadingSt
     try{
         const promisse = await axios.delete(`http://localhost:5000/post/${postId}`,config);
         console.log(promisse)
-        setIsOpen(false);
         await getPosts(posts, setPosts, setError, setLoadingState);
+        setIsOpen(false);
     }catch(error){
+        setIsOpen(false);
+        alert("Sorry, could not delete post");
         console.log(error);
     }
 }
