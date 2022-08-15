@@ -1,4 +1,6 @@
 import { IonIcon } from "react-ion-icon";
+import { TiPencil } from "react-icons/ti/index.js";
+import { TbTrash } from "react-icons/tb/index.js";
 import { Section, Container, Name, Description, Hashtags, LinkContainer, LinkBox, LinkTittle, LinkDescription, Link, LinkImage, PostContainer, Aside, ProfileImageBox, ProfileImage, LikesBox, LikesCount, Top, Icons, EditBox } from "./styles.js";
 import profile from "./../../../assets/images/profile.jpg"
 import { useState } from "react";
@@ -44,8 +46,8 @@ export default function Post(props) {
                         <Top>
                             <Name>{username}</Name>
                             <Icons>
-                                <ion-icon name="pencil-sharp" onClick={() => setOpenEditBox(!openEditBox)}></ion-icon>
-                                <ion-icon name="trash-sharp"></ion-icon>
+                                <TiPencil onClick={() => setOpenEditBox(!openEditBox)} />
+                                <TbTrash />
                             </Icons>
                         </Top>
                         <Description>
@@ -60,7 +62,7 @@ export default function Post(props) {
                                 <LinkDescription>{linkDescription}</LinkDescription>
                                 <Link href={link}>{link}</Link>
                             </LinkBox>
-                            <LinkImage src={linkImage}/>
+                            <LinkImage src={linkImage} />
                         </LinkContainer >
                     </PostContainer >
                 </Container >

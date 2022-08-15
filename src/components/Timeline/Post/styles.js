@@ -117,8 +117,12 @@ export const Icons = styled.div`
     width: 40px;
     display: flex;
     justify-content: space-between;
-    font-size: 15px;
-    color: #FFFFFF;
+    
+    svg {
+        width: 15px;
+        height: 15px;
+        color: #FFFFFF;
+    }
 `
 
 export const EditBox = styled.textarea`
