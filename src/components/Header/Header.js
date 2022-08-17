@@ -15,6 +15,7 @@ export default function Header(){
         <>
             <HeaderContainer>
                 <Logo> Linkr </Logo>
+                <HeaderSearchBar/>
                 <Box onClick={() => changeDisplayStatus(logoutDisplayStatus, setLogoutDisplayStatus)}>
                     {
                         logoutDisplayStatus === "none" ? <IonIcon name="chevron-down-outline"/> : <IonIcon name="chevron-up-outline"/>
